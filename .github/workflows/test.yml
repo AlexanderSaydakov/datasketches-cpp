@@ -17,7 +17,7 @@ jobs:
       - name: Run C++ tests
         run: cmake --build build --config Release --target test
       - name: List files
-        run: ls -al build/
+        run: find .
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
