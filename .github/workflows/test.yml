@@ -16,3 +16,8 @@ jobs:
         run: cmake --build build --config Release
       - name: Run C++ tests
         run: cmake --build build --config Release --target test
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v3
+        with:
+          name: sketch
+          path: theta_estimation_mode_v4.sk
