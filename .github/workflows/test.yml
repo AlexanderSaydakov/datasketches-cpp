@@ -1,0 +1,18 @@
+name: SerDe Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: SerDe Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Configure
+        run: cd build && cmake ..
+      - name: Build C++ unit tests
+        run: cmake --build build --config Release
+      - name: Run C++ tests
+        run: cmake --build build --config Release --target test
