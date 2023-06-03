@@ -866,6 +866,20 @@ TEST_CASE("kll sketch", "[kll_sketch]") {
     REQUIRE(sb.get_n() == 3);
   }
 
+    SECTION("for compatibility with Java float") {
+    kll_sketch<float> sketch;
+    for (int i = 0; i < 1000; ++i) sketch.update(i);
+    std::ofstream os("kll_float_estimation_cpp.sk");
+    sketch.serialize(os);
+  }
+
+  SECTION("for compatibility with Java double") {
+    kll_sketch<double> sketch;
+    for (int i = 0; i < 1000; ++i) sketch.update(i);
+    std::ofstream os("kll_double_estimation_cpp.sk");
+    sketch.serialize(os);
+  }
+
   // cleanup
   REQUIRE(test_allocator_total_bytes == 0);
 }
