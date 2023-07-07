@@ -24,7 +24,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
-          destination_dir: docs/${{ GIT_BRANCH }}
+          destination_dir: docs/$GITHUB_REF_NAME
           enable_jekyll: false
           allow_empty_commit: false
           force_orphan: true
