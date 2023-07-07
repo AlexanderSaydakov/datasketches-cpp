@@ -27,5 +27,5 @@ jobs:
           destination_dir: docs/${{ github.ref_name }}
           enable_jekyll: false
           allow_empty_commit: false
-          force_orphan: true
+          force_orphan: false
           publish_branch: gh-pages
