@@ -8,6 +8,8 @@ jobs:
     name: SerDe Test
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Checkout Java
         uses: actions/checkout@v2
         with:
@@ -15,9 +17,7 @@ jobs:
           path: java
       - name: Run Java
         run: cd java && mvn test
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Configure
+      - name: Run cmake
         run: cd build && cmake ..
       - name: Build C++ unit tests
         run: cmake --build build --config Release
