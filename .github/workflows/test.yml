@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Checkout Java
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: AlexanderSaydakov/datasketches-java
           path: java
