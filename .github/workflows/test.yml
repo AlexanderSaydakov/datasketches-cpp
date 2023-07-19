@@ -18,15 +18,10 @@ jobs:
       - name: Run Java
         run: cd java && mvn test
       - name: Run cmake
-        run: cd build && cmake ..
+        run: cd build && cmake .. -DSERDE_COMPAT=true
       - name: Build C++ unit tests
         run: cmake --build build --config Release
       - name: Run C++ tests
         run: cmake --build build --config Release --target test
       - name: List files
         run: find .
-#      - name: Upload artifacts
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: sketch
-#          path: build/kll/test/kll_double_estimation_cpp.sk
