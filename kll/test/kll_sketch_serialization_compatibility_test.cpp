@@ -23,13 +23,10 @@
 
 namespace datasketches {
 
-#ifdef TEST_BINARY_INPUT_PATH
-static std::string testBinaryInputPath = TEST_BINARY_INPUT_PATH;
-#else
-static std::string testBinaryInputPath = "../java/";
-#endif
+static std::string testBinaryInputPath = std::string(TEST_BINARY_INPUT_PATH) + "../../java/";
 
 TEST_CASE("kll double estimation", "[serde_compat]") {
+  std::cout << "path=" << testBinaryInputPath << "\n";
   std::ifstream is;
   is.exceptions(std::ios::failbit | std::ios::badbit);
   is.open(testBinaryInputPath + "kll_double_estimation_java.sk", std::ios::binary);
